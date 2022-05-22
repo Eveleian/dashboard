@@ -1,0 +1,76 @@
+<!-- Toolbar -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+
+<body>
+
+
+  <div class="content">
+    <header>
+      <div *ngIf="isLoggedin === false">
+        <div>
+          <mat-toolbar>
+          <h1>Dashboard</h1>
+            <div class="button">
+              <a class="button1" mat-stroked-button (click)="openDialogLogin()">Login</a>
+              |
+              <a class="button1" mat-stroked-button (click)="openDialogSignup()">Sign up</a>
+            </div>
+          </mat-toolbar>
+        </div>
+      </div>
+      <div *ngIf="isLoggedin === true">
+        <div>
+          <mat-toolbar>
+          <h1>Dashboard</h1>
+          <div class="button">
+            <a class="button1" mat-stroked-button (click)="logOut()">Log Out</a>
+          </div>
+        </mat-toolbar>
+        </div>
+      </div>
+
+    </header>
+
+    <div class="bodyToWidget">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Add a widget</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="example-form">
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Click to select</mat-label>
+                    <mat-select [(ngModel)]="selectedValue" name="widget" #optionWidget>
+                      <mat-option *ngFor="let widget of widgets" [value]="widget.value" >
+                        {{widget.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field> 
+            </div>
+            <div>
+              <mat-form-field appearance='fill'> 
+                <input matInput name='widget' placeholder='Field' #valueWidget> 
+              </mat-form-field>
+            </div>
+            <button mat-raised-button (click)="addWidget()">Add</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+<footer>By Valentin BOUCHET - Raphael GUIGON - Justine LE NAUTOUT</footer>
+</body>
+
+</html>
+
+<router-outlet></router-outlet>

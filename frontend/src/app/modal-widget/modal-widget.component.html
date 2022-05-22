@@ -1,0 +1,22 @@
+<h2>Add a widget</h2>
+<form class="example-form">
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Click to select</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="widget" #optionWidget>
+              <mat-option *ngFor="let widget of widgets" [value]="widget.value" >
+                {{widget.viewValue}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field> 
+    </div>
+    <div>
+      <mat-form-field appearance='fill'> 
+        <input matInput name='widget' placeholder='City' #valueWidget> 
+      </mat-form-field>
+    </div>
+    <button mat-raised-button (click)="addWidget()">Add</button>
+</form> 
+
+<!-- input en texte sous le select, en js natif, lors de la modification du select, modification de placeholder en dessous 
+qaund tu appuys sur add, recupere les données et appelle 4 methodes différences avec le parametre dans 3 d'entre elles-->

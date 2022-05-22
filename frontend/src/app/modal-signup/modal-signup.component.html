@@ -1,0 +1,23 @@
+<h2>Sign up</h2>
+<form class="example-form">
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required #singupEmail>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" required #singupPassword>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Pseudo</mat-label>
+            <input matInput required #singupPseudo>
+          </mat-form-field>
+    </div>
+    <button mat-raised-button (click)="singup()">Sign up</button>
+</form> 
